@@ -3,6 +3,7 @@ package edu.whut.cs.jee.mooc.upms.service.impl;
 import edu.whut.cs.jee.mooc.common.exception.APIException;
 import edu.whut.cs.jee.mooc.common.exception.AppCode;
 import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
+import edu.whut.cs.jee.mooc.mclass.service.MoocClassService;
 import edu.whut.cs.jee.mooc.upms.dto.RoleDto;
 import edu.whut.cs.jee.mooc.upms.dto.StudentDto;
 import edu.whut.cs.jee.mooc.upms.dto.TeacherDto;
@@ -27,7 +28,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Service
+@org.springframework.stereotype.Service
+@com.alibaba.dubbo.config.annotation.Service(timeout = 10000,interfaceClass = UserService.class)
 @Transactional
 public class UserServiceImpl implements UserService {
 

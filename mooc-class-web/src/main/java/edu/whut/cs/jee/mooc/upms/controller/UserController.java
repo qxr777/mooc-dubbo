@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.upms.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import edu.whut.cs.jee.mooc.common.constant.AppConstants;
 import edu.whut.cs.jee.mooc.common.constant.PageConsts;
 import edu.whut.cs.jee.mooc.upms.dto.RoleDto;
@@ -30,7 +31,7 @@ import java.util.List;
 @RequestMapping("/user")
 @PostAuthorize("hasRole('ADMIN')")
 public class UserController {
-    @Autowired
+    @Reference      //单体应用时使用 @Autowired
     private UserService userService;
 
     @ApiOperation("所有用户列表")

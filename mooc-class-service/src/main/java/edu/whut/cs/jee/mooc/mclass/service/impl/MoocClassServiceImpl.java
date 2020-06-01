@@ -19,6 +19,7 @@ import edu.whut.cs.jee.mooc.mclass.repository.ExaminationRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.LessonRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.MoocClassRepository;
 import edu.whut.cs.jee.mooc.mclass.service.MoocClassService;
+import edu.whut.cs.jee.mooc.upms.dto.RoleDto;
 import edu.whut.cs.jee.mooc.upms.dto.UserDto;
 import edu.whut.cs.jee.mooc.upms.model.Teacher;
 import edu.whut.cs.jee.mooc.upms.model.User;
@@ -31,12 +32,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Slf4j
-@Service
 @Transactional
+@org.springframework.stereotype.Service
+@com.alibaba.dubbo.config.annotation.Service(timeout = 10000,interfaceClass = MoocClassService.class)
 public class MoocClassServiceImpl implements MoocClassService {
 
     @Autowired
@@ -190,7 +193,17 @@ public class MoocClassServiceImpl implements MoocClassService {
             userIds.add(bigInteger.longValue());
         });
         List<User> users = Lists.newArrayList(userRepository.findAllById(userIds));
-        return BeanConvertUtils.convertListTo(users, UserDto::new);
+//        return BeanConvertUtils.convertListTo(users, UserDto::new);
+        List<UserDto> userDtos = new ArrayList<>();
+        List<RoleDto> roleDtos = null;
+        UserDto userDto = null;
+        for(User user : users) {
+            userDto = BeanConvertUtils.convertTo(user, UserDto::new);
+            roleDtos = BeanConvertUtils.convertListTo(user.getRoles(), RoleDto::new);
+            userDto.setRoles(roleDtos);
+            userDtos.add(userDto);
+        }
+        return userDtos;
     }
 
     private List<User> getUsers(Long moocClassId) {

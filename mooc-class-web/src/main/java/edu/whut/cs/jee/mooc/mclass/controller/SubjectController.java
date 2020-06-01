@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.*;
 import edu.whut.cs.jee.mooc.mclass.service.SubjectService;
@@ -22,7 +23,7 @@ import java.util.List;
 @RequestMapping("/subject")
 public class SubjectController {
 
-    @Autowired
+    @Reference      //单体应用时使用 @Autowired
     private SubjectService subjectService;
 
     @PostMapping("saveJudgment")

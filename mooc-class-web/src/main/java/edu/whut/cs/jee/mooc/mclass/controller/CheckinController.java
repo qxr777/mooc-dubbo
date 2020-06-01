@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.AttendanceDto;
 import edu.whut.cs.jee.mooc.mclass.dto.CheckInDto;
@@ -23,7 +24,7 @@ import javax.validation.Valid;
 @RequestMapping("/checkin")
 public class CheckinController {
 
-    @Autowired
+    @Reference      //单体应用时使用 @Autowired
     private CheckInService checkInService;
 
     @PostMapping("")

@@ -10,6 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -45,10 +46,10 @@ public class CheckInServiceTest {
             .lessonId(lessonId)
             .build();
 
-    @Resource
+    @Autowired
     CheckInService checkInService;
 
-    @Resource
+    @Autowired
     MoocClassServiceImpl moocClassService;
 
     @Before
@@ -61,14 +62,8 @@ public class CheckInServiceTest {
 
     @After
     public void clearTestObjects() {
-//        checkInService.removeCheckIn(checkInId);
         moocClassService.removeLesson(lessonId);
     }
-
-//    @Test
-//    public void testSaveCheckIn() throws ParseException {
-//        checkInDto = checkInService.saveCheckIn(checkInDto);
-//    }
 
     @Test
     public void testSaveAttendance() throws ParseException, APIException {

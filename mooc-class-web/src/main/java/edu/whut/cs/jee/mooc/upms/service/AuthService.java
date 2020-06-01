@@ -1,6 +1,5 @@
 package edu.whut.cs.jee.mooc.upms.service;
 
-import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import edu.whut.cs.jee.mooc.upms.security.JwtTokenUtil;
 import edu.whut.cs.jee.mooc.upms.security.JwtUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,6 @@ public class AuthService {
     private AuthenticationManager authenticationManager;
     private UserDetailsService userDetailsService;
     private JwtTokenUtil jwtTokenUtil;
-//    private UserRepository userRepository;
 
     @Value("${jwt.tokenHead}")
     private String tokenHead;
@@ -33,7 +31,6 @@ public class AuthService {
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;
         this.jwtTokenUtil = jwtTokenUtil;
-//        this.userRepository = userRepository;
     }
 
 

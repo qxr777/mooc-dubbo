@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import edu.whut.cs.jee.mooc.common.constant.AppConstants;
 import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.ExaminationDto;
@@ -24,7 +25,7 @@ import java.util.List;
 @RequestMapping("/examination")
 public class ExaminationController {
 
-    @Autowired
+    @Reference      //单体应用时使用 @Autowired
     private ExaminationService examinationService;
 
 

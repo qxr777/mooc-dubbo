@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.mclass.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import edu.whut.cs.jee.mooc.mclass.dto.ExerciseDto;
 import edu.whut.cs.jee.mooc.mclass.service.ExerciseService;
 import edu.whut.cs.jee.mooc.mclass.service.SubjectService;
@@ -22,10 +23,10 @@ import java.util.List;
 @PreAuthorize("hasRole('TEACHER')")
 public class ExerciseController {
 
-    @Autowired
+    @Reference      //单体应用时使用 @Autowired
     private ExerciseService exerciseService;
 
-    @Autowired
+    @Reference      //单体应用时使用 @Autowired
     private SubjectService subjectService;
 
     @PostMapping("")

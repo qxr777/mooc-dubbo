@@ -18,6 +18,7 @@ import edu.whut.cs.jee.mooc.mclass.repository.CheckInRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.LessonRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.MoocClassRepository;
 import edu.whut.cs.jee.mooc.mclass.service.CheckInService;
+import edu.whut.cs.jee.mooc.mclass.service.MoocClassService;
 import edu.whut.cs.jee.mooc.upms.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-@Service
+@org.springframework.stereotype.Service
+@com.alibaba.dubbo.config.annotation.Service(timeout = 10000,interfaceClass = CheckInService.class)
 @Transactional
 public class CheckInServiceImpl implements CheckInService {
 

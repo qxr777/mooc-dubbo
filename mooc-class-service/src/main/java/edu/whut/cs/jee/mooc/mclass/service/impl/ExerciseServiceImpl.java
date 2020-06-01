@@ -7,6 +7,7 @@ import edu.whut.cs.jee.mooc.mclass.model.Subject;
 import edu.whut.cs.jee.mooc.mclass.repository.ExerciseRepository;
 import edu.whut.cs.jee.mooc.mclass.repository.SubjectRepository;
 import edu.whut.cs.jee.mooc.mclass.service.ExerciseService;
+import edu.whut.cs.jee.mooc.mclass.service.MoocClassService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Slf4j
-@Service
+@org.springframework.stereotype.Service
+@com.alibaba.dubbo.config.annotation.Service(timeout = 10000,interfaceClass = ExerciseService.class)
 @Transactional
 public class ExerciseServiceImpl implements ExerciseService {
 

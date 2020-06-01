@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.upms.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import edu.whut.cs.jee.mooc.common.constant.AppConstants;
 import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.upms.dto.RoleDto;
@@ -32,7 +33,7 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @Autowired
+    @Reference      //单体应用时使用 @Autowired
     private UserService userService;
 
     @RequestMapping(value = "${jwt.route.authentication.path}", method = RequestMethod.POST)

@@ -6,6 +6,7 @@ import edu.whut.cs.jee.mooc.common.util.BeanConvertUtils;
 import edu.whut.cs.jee.mooc.mclass.dto.*;
 import edu.whut.cs.jee.mooc.mclass.model.*;
 import edu.whut.cs.jee.mooc.mclass.repository.SubjectRepository;
+import edu.whut.cs.jee.mooc.mclass.service.MoocClassService;
 import edu.whut.cs.jee.mooc.mclass.service.SubjectService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-@Service
+@org.springframework.stereotype.Service
+@com.alibaba.dubbo.config.annotation.Service(timeout = 10000,interfaceClass = SubjectService.class)
 @Transactional
 public class SubjectServiceImpl implements SubjectService {
 

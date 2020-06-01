@@ -1,5 +1,6 @@
 package edu.whut.cs.jee.mooc.upms.security;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import edu.whut.cs.jee.mooc.upms.dto.UserDto;
 import edu.whut.cs.jee.mooc.upms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import java.util.List;
 @Transactional
 public class JwtUserDetailsService implements UserDetailsService {
 
-    @Autowired
+    @Reference      //单体应用时使用 @Autowired
     private UserService userService;
 
     @Override
