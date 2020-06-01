@@ -1,0 +1,41 @@
+2020-06-01 08:43:13.569  INFO 68400 --- [main] e.w.c.j.m.m.service.CheckInServiceTest   : Starting CheckInServiceTest on qixindeMacBook-Air.local with PID 68400 (started by qixin in /Volumes/Transcend/Documents/教学/Java企业版/教学项目/mooc-dubbo/mooc-class-service)
+2020-06-01 08:43:13.577  INFO 68400 --- [main] e.w.c.j.m.m.service.CheckInServiceTest   : No active profile set, falling back to default profiles: default
+2020-06-01 08:43:15.229  INFO 68400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-06-01 08:43:15.468  INFO 68400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 219ms. Found 11 repository interfaces.
+2020-06-01 08:43:15.511  INFO 68400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-06-01 08:43:15.640  INFO 68400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 129ms. Found 12 repository interfaces.
+2020-06-01 08:43:17.460  INFO 68400 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-06-01 08:43:17.985  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:18.143  INFO 68400 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-06-01 08:43:18.437  INFO 68400 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2020-06-01 08:43:18.441  INFO 68400 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-06-01 08:43:19.127  INFO 68400 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-06-01 08:43:19.598  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:19.652  INFO 68400 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-06-01 08:43:22.219  INFO 68400 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-06-01 08:43:23.254  INFO 68400 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-06-01 08:43:25.129  INFO 68400 --- [main] e.w.c.j.m.m.service.CheckInServiceTest   : Started CheckInServiceTest in 13.166 seconds (JVM running for 15.929)
+2020-06-01 08:43:25.131  INFO 68400 --- [main] e.w.c.j.m.MoocClassServiceApplication    : All MoocClass: {}
+2020-06-01 08:43:25.399  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:25.590  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:25.856  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:25.964  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:26.020  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:26.144  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:26.198  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:26.277  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:26.331  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:26.392  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:26.432  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:26.511  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：slave2
+2020-06-01 08:43:26.513  INFO 68400 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2020-06-01 08:43:26.728  INFO 68400 --- [main] e.w.c.j.m.m.service.CheckInServiceTest   : CheckInDto(id=10, lessonId=30, deadline=2020-06-01 09:13:26.0, gps=true, statusCh=开放, longitude=100.0, latitude=100.0, checkedCount=0, absenceCount=2, lateCount=0, attendanceDtos=[AttendanceDto(checkInId=10, userId=2, longitude=null, latitude=null, userName=xes1, statusCh=缺课, createTime=2020-06-01 08:43:26.0), AttendanceDto(checkInId=10, userId=3, longitude=null, latitude=null, userName=xdf1, statusCh=缺课, createTime=2020-06-01 08:43:26.0)])
+2020-06-01 08:43:26.729  INFO 68400 --- [main] e.w.c.j.m.c.config.DataSourceConfig      : 当前操作使用的数据源：master
+2020-06-01 08:43:26.832  INFO 68400 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-06-01 08:43:26.834  INFO 68400 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closing ...
+2020-06-01 08:43:26.839  INFO 68400 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2020-06-01 08:43:26.839  INFO 68400 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-0} closing ...
+2020-06-01 08:43:26.840  INFO 68400 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-06-01 08:43:26.841  INFO 68400 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
