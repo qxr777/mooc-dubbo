@@ -1,13 +1,5 @@
 version: '2'
 services:
-  mooc-dubbo-mysql:
-    extends:
-      file: mysql.yml
-      service: mooc-dubbo-mysql
-    networks:
-      mooc-dubbo-net:
-        aliases:
-          - mysql
   mooc-dubbo-zookeeper:
     extends:
       file: zookeeper.yml
@@ -18,8 +10,6 @@ services:
           - zookeeper
   mooc-dubbo-dubbo:
     image: xinmeng/dubbo-admin:2.0.0
-    depends_on:
-      - mooc-dubbo-zookeeper
     environment:
       - ZOOKEEPER=zookeeper:2181
       - ROOT_PASS=root
@@ -29,6 +19,6 @@ services:
     networks:
       mooc-dubbo-net:
         aliases:
-          - dubbo
+          - dubbo         
 networks:
   mooc-dubbo-net:

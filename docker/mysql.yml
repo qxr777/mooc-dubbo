@@ -1,6 +1,6 @@
 version: '2'
 services:
-    mooc-mysql:
+    mooc-dubbo-mysql:
         image: mysql:5.7.22
         volumes:
             - ./data/mysql/conf:/etc/mysql/conf.d
