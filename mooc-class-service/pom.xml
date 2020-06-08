@@ -108,6 +108,11 @@
             <version>0.1</version>
         </dependency>
         <!-- end of dubbo -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
 
         <dependency>
             <groupId>edu.whut.cs.jee</groupId>
