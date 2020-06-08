@@ -19,8 +19,13 @@ import java.io.IOException;
 public class MoocClassServiceApplication implements ApplicationRunner {
 
     public static void main(String[] args) throws IOException {
+
+
         SpringApplication.run(MoocClassServiceApplication.class, args);
-        System.in.read(); // press any key to exit
+//        System.in.read(); // press any key to exit
+
+        args = new String[] { "spring" };
+        com.alibaba.dubbo.container.Main.main(args);
     }
 
     @Override
