@@ -27,7 +27,7 @@ import java.util.List;
 public class MoocClassController {
 
     @Reference      //单体应用时使用 @Autowired
-    private MoocClassService moocClassServicee;
+    private MoocClassService moocClassService;
 
     @PostMapping("")
     @ApiOperation(value = "新增慕课堂")
@@ -37,7 +37,7 @@ public class MoocClassController {
     @PreAuthorize("hasRole('TEACHER')")
     public Long save(@RequestBody @Valid MoocClassNewVo moocClassNewVo) {
         MoocClassDto moocClassDto = BeanConvertUtils.convertTo(moocClassNewVo, MoocClassDto::new);
-        return moocClassServicee.saveMoocClass(moocClassDto);
+        return moocClassService.saveMoocClass(moocClassDto);
     }
 
     @PostMapping("add")
@@ -48,7 +48,7 @@ public class MoocClassController {
     @PreAuthorize("hasRole('TEACHER')")
     public Long add(@RequestBody @Valid MoocClassAddVo moocClassAddVo) {
         MoocClassDto moocClassDto = BeanConvertUtils.convertTo(moocClassAddVo, MoocClassDto::new);
-        return moocClassServicee.addMoocClass(moocClassDto);
+        return moocClassService.addMoocClass(moocClassDto);
     }
 
     @PostMapping("join")
@@ -57,7 +57,7 @@ public class MoocClassController {
             @ApiImplicitParam(name = "joinDto", value = "加入信息", dataType = "JoinDto")
     })
     public String join(@RequestBody @Valid JoinDto joinDto) {
-        moocClassServicee.join(joinDto);
+        moocClassService.join(joinDto);
         return "success";
     }
 
@@ -68,21 +68,21 @@ public class MoocClassController {
     })
     @PreAuthorize("hasRole('TEACHER')")
     public Long prepare(@RequestBody @Valid LessonReadyVo lessonReadyVo) {
-        return moocClassServicee.saveLesson(BeanConvertUtils.convertTo(lessonReadyVo, LessonDto::new));
+        return moocClassService.saveLesson(BeanConvertUtils.convertTo(lessonReadyVo, LessonDto::new));
     }
 
     @PostMapping("{moocClassId}/start")
     @ApiOperation(value = "开始上课", notes = "路径参数ID")
     @PreAuthorize("hasRole('TEACHER')")
     public LessonDto start(@PathVariable Long moocClassId) {
-        return moocClassServicee.startLesson(moocClassId);
+        return moocClassService.startLesson(moocClassId);
     }
 
     @PutMapping("/lesson/{lessonId}/end")
     @ApiOperation(value = "结束上课", notes = "路径参数ID")
     @PreAuthorize("hasRole('TEACHER')")
     public String endLesson(@PathVariable Long lessonId) {
-        moocClassServicee.endLesson(lessonId);
+        moocClassService.endLesson(lessonId);
         return "success";
     }
 
@@ -90,7 +90,7 @@ public class MoocClassController {
     @GetMapping(value = "/lesson/{lessonId}")
     @PreAuthorize("hasRole('TEACHER')")
     public LessonDto detailLesson(@PathVariable Long lessonId) {
-        return moocClassServicee.getLesson(lessonId);
+        return moocClassService.getLesson(lessonId);
     }
 
     @PutMapping("")
@@ -100,7 +100,7 @@ public class MoocClassController {
     })
     @PreAuthorize("hasRole('TEACHER')")
     public Long edit(@RequestBody @Valid MoocClassEditVo moocClassEditVo) {
-        return moocClassServicee.editMoocClass(BeanConvertUtils.convertTo(moocClassEditVo, MoocClassDto::new));
+        return moocClassService.editMoocClass(BeanConvertUtils.convertTo(moocClassEditVo, MoocClassDto::new));
     }
 
 //    @ApiOperation("获取所有慕课堂列表")
@@ -117,13 +117,22 @@ public class MoocClassController {
     @GetMapping(value = "own")
     @PreAuthorize("hasRole('TEACHER')")
     public List<MoocClassDto> list(@RequestParam(value = "teacherId", required = true) Long teacherId) {
-        return moocClassServicee.getOwnMoocClasses(teacherId);
+        return moocClassService.getOwnMoocClasses(teacherId);
+    }
+
+    @ApiOperation("获取学生的慕课堂列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userId", value = "学生ID", dataType = "Long")
+    })
+    @GetMapping(value = "join")
+    public List<MoocClassDto> listJoin(@RequestParam(value = "userId", required = true) Long userId) {
+        return moocClassService.getJoinMoocClasses(userId);
     }
 
     @ApiOperation(value = "获取慕课堂详细信息", notes = "路径参数ID")
     @GetMapping(value = "{id}")
     public MoocClassDetailVo detail(@PathVariable Long id) {
-        MoocClassDto moocClassDto = moocClassServicee.getMoocClass(id);
+        MoocClassDto moocClassDto = moocClassService.getMoocClass(id);
         return BeanConvertUtils.convertTo(moocClassDto, MoocClassDetailVo::new);
     }
 
@@ -131,12 +140,12 @@ public class MoocClassController {
     @GetMapping(value = "{id}/users")
     @PreAuthorize("hasRole('TEACHER')")
     public List<UserDto> userList(@PathVariable Long id) {
-        return moocClassServicee.getUserDtos(id);
+        return moocClassService.getUserDtos(id);
     }
 
     @ApiOperation(value = "获取慕课堂的上课记录", notes = "路径参数ID")
     @GetMapping(value = "{id}/lessons")
     public List<LessonDto> lessonList(@PathVariable Long id) {
-        return moocClassServicee.getLessons(id);
+        return moocClassService.getLessons(id);
     }
 }

@@ -16,6 +16,14 @@ services:
       mooc-dubbo-net:
         aliases:
           - zookeeper
+  mooc-redis:
+    extends:
+      file: redis.yml
+      service: mooc-dubbo-redis
+    networks:
+      mooc-dubbo-net:
+        aliases:
+          - redis
   mooc-dubbo-dubbo:
     image: xinmeng/dubbo-admin:2.0.0
     depends_on:

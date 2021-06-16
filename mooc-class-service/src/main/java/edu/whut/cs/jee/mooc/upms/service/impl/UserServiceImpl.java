@@ -16,6 +16,8 @@ import edu.whut.cs.jee.mooc.upms.repository.UserRepository;
 import edu.whut.cs.jee.mooc.upms.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,6 +33,7 @@ import java.util.stream.Collectors;
 @org.springframework.stereotype.Service
 @com.alibaba.dubbo.config.annotation.Service(timeout = 10000,interfaceClass = UserService.class)
 @Transactional
+@CacheConfig(cacheNames = "users")
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -104,6 +107,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Transactional(readOnly = true)
+    @Cacheable(key = "#p0")
     public List<UserDto> getUserByUsername(String username) {
         List<User> users = userRepository.findByName(username);
         List<UserDto> userDtos = new ArrayList<>();
