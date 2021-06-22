@@ -16,7 +16,7 @@ services:
       mooc-dubbo-net:
         aliases:
           - zookeeper
-  mooc-redis:
+  mooc-dubbo-redis:
     extends:
       file: redis.yml
       service: mooc-dubbo-redis
