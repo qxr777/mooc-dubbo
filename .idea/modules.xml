@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mooc-class-common/mooc-class-common.iml" filepath="$PROJECT_DIR$/mooc-class-common/mooc-class-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mooc-class-service/mooc-class-service.iml" filepath="$PROJECT_DIR$/mooc-class-service/mooc-class-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mooc-class-web/mooc-class-web.iml" filepath="$PROJECT_DIR$/mooc-class-web/mooc-class-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mooc-dubbo.iml" filepath="$PROJECT_DIR$/.idea/mooc-dubbo.iml" />
+    </modules>
+  </component>
+</project>
