@@ -1,19 +1,21 @@
 version: '2'
 services:
-  mooc-dubbo-zookeeper:
-    extends:
-      file: zookeeper.yml
-      service: mooc-dubbo-zookeeper
-    networks:
-      mooc-dubbo-net:
-        aliases:
-          - zookeeper
+#  mooc-dubbo-zookeeper:
+#    extends:
+#      file: zookeeper.yml
+#      service: mooc-dubbo-zookeeper
+#    networks:
+#      mooc-dubbo-net:
+#        aliases:
+#          - zookeeper
   mooc-dubbo-monitor:
-    image: dubbo-monitor-simple:2.0.0
+    image: mailbyms/dubbo-monitor
     environment:
-      - ZOOKEEPER=zookeeper:2181
+      - TZ=Asia/Shanghai
+      - ZOOKEEPER_ADDRESS=zookeeper:2181
     ports:
       - 7000:8080
+      - 7070:7070
     networks:
       mooc-dubbo-net:
         aliases:

@@ -24,7 +24,7 @@ services:
       mooc-dubbo-net:
         aliases:
           - redis
-  mooc-dubbo-dubbo:
+  mooc-dubbo-admin:
     image: xinmeng/dubbo-admin:2.0.0
     depends_on:
       - mooc-dubbo-zookeeper
@@ -37,6 +37,18 @@ services:
     networks:
       mooc-dubbo-net:
         aliases:
-          - dubbo
+          - admin
+  mooc-dubbo-monitor:
+    image: mailbyms/dubbo-monitor
+    environment:
+      - TZ=Asia/Shanghai
+      - ZOOKEEPER_ADDRESS=zookeeper:2181
+    ports:
+      - 7000:8080
+      - 7070:7070
+    networks:
+      mooc-dubbo-net:
+        aliases:
+          - monitor
 networks:
   mooc-dubbo-net:
