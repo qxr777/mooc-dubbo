@@ -1,0 +1,1 @@
+java -jar mooc-class-service-1.0-SNAPSHOT.jar

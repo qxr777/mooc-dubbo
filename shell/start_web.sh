@@ -1,0 +1,1 @@
+java -jar mooc-class-web-1.0-SNAPSHOT.jar
