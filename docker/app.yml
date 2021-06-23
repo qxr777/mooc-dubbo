@@ -8,6 +8,7 @@ services:
       mooc-dubbo-net:
         aliases:
           - mysql
+        ipv4_address: 172.23.0.2
   mooc-dubbo-zookeeper:
     extends:
       file: zookeeper.yml
@@ -16,6 +17,7 @@ services:
       mooc-dubbo-net:
         aliases:
           - zookeeper
+        ipv4_address: 172.23.0.3
   mooc-dubbo-redis:
     extends:
       file: redis.yml
@@ -24,6 +26,7 @@ services:
       mooc-dubbo-net:
         aliases:
           - redis
+        ipv4_address: 172.23.0.4
   mooc-dubbo-admin:
     image: xinmeng/dubbo-admin:2.0.0
     depends_on:
@@ -38,6 +41,7 @@ services:
       mooc-dubbo-net:
         aliases:
           - admin
+        ipv4_address: 172.23.0.5
   mooc-dubbo-monitor:
     image: mailbyms/dubbo-monitor
     environment:
@@ -50,5 +54,19 @@ services:
       mooc-dubbo-net:
         aliases:
           - monitor
+        ipv4_address: 172.23.0.6
+  mooc-dubbo-spring-admin:
+    image: qxr777/springboot-admin:latest
+    ports:
+      - 7002:7002
+    networks:
+      mooc-dubbo-net:
+        aliases:
+          - spring-admin
+        ipv4_address: 172.23.0.7
 networks:
   mooc-dubbo-net:
+    ipam:
+      config:
+        - subnet: 172.23.0.0/16
+          gateway: 172.23.0.1

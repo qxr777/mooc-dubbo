@@ -1,23 +1,14 @@
 package edu.whut.cs.jee.mooc;
 
 import cn.hutool.core.convert.Convert;
-import cn.hutool.core.thread.ThreadUtil;
-import cn.hutool.core.util.NumberUtil;
-import cn.hutool.core.util.StrUtil;
 import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 @Slf4j
 @SpringBootApplication
